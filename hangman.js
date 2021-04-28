@@ -16,7 +16,7 @@ class Hangman {
             this.status = 'playing'
         }
     }
-    getStatusMessage() {
+    get statusMessage() {
         if(this.status === 'finished'){
             return 'Great work.You Win!!'
         } else if (this.status === 'playing'){
@@ -25,7 +25,7 @@ class Hangman {
             return `You suck!! The word was "${this.word.join('')}"`
         }
     }
-    getPuzzle() {
+    get puzzle() {
         let puzzle = ''
     
         this.word.forEach((letter) => {
