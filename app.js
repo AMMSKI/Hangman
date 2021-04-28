@@ -1,14 +1,15 @@
-// Primitive Value: string, number, boolean, null, undefined (everything not in this list is an object...includeing arrays and functions)
+const puzzleEl = document.querySelector('#puzzle')
+const guessesEl = document.querySelector('#guesses')
+const game1 = new Hangman('cat', 3)
 
-// Object: myObject --> Object.prototype --> null
-// Array: myArray -- Array.prototype --> Object.prototype --> null
-// Function: myFunc --> Function.prototype --> Object.prototype --> null
-// String: myString --> String.prototype --> Object.prototype --> null
-// Number: myNumber --> Number.prototype --> Object.prototype --> null
-// Boolean: myBoolean --> Boolean.prototype --> Object.prototype --> null
+puzzleEl.textContent = game1.getPuzzle()
+guessesEl.textContent = game1.remainingGuesses
+console.log(game1.status)
 
-const product = 'Computer'
-console.log(product)
-
-const otherProduct = new String('Phone')
-console.log(otherProduct)
+window.addEventListener('keypress', function(e) {
+    const guess = String.fromCharCode(e.charCode)
+    game1.makeGuess(guess)
+    puzzleEl.textContent = game1.getPuzzle()
+    guessesEl.textContent = game1.remainingGuesses 
+    console.log(game1.status)
+})
