@@ -18,7 +18,7 @@ window.addEventListener('keypress', (e) => {
     console.log(game1.status)
 })
 
-getPuzzle((error, puzzle) => {
+getPuzzle("2", (error, puzzle) => {
     if(error) {
         console.log(`Error: ${error}`)
     }else{
@@ -27,21 +27,10 @@ getPuzzle((error, puzzle) => {
 })
 
 
-//Making a HTTP request for random phrases 
-
-
-
-
-// const countryCode = "US"
-
-// const country = new XMLHttpRequest()
-
-// country.addEventListener('readystatechange', (e) => {
-//     if(e.target.readyState === 4 && e.target.status === 200){
-//         const data = JSON.parse(e.target.responseText)
-//         const country = data.find((country) => country.alpha2Code === countryCode)
-//         console.log(country.name)
-//     } 
-// })
-// country.open('GET', 'http://restcountries.eu/rest/v2/all')
-// country.send()
+getCountry('US', (error, country) => {
+    if(error){
+        console.log(error)
+    } else {
+    console.log(`Country name: ${country.name}`)
+    }
+})
