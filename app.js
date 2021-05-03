@@ -1,7 +1,3 @@
-// HTTP (Hypertext Transfer protocol)
-// Request -- What does the person making the request want to do
-// Response -- What was accutally done
-
 const puzzleEl = document.querySelector('#puzzle')
 const guessesEl = document.querySelector('#guesses')
 const game1 = new Hangman('dog bob', 3)
@@ -18,19 +14,16 @@ window.addEventListener('keypress', (e) => {
     console.log(game1.status)
 })
 
-getPuzzle("2", (error, puzzle) => {
-    if(error) {
-        console.log(`Error: ${error}`)
-    }else{
-        console.log(puzzle)
-    }
+getPuzzle('2').then((puzzle) =>{
+    console.log(puzzle)
+}, (error) => {
+    console.log(`Error: ${error}`)
 })
 
 
-getCountry('US', (error, country) => {
-    if(error){
-        console.log(error)
-    } else {
+getCountry('US').then((country) => {
     console.log(`Country name: ${country.name}`)
-    }
+}, (error) => {
+    console.log(`Error: ${error}`)
 })
+
